@@ -1,0 +1,7 @@
+set term png size 1024,768
+set out "output.png"
+set xr [-10:2]
+set yr [-2:10]
+unset key
+set view equal xyz
+splot 'x.txt' w l, 'y.txt' w l, 'z.txt' w l
