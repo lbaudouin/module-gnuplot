@@ -1,0 +1,29 @@
+set multiplot layout 2,2 rowsfirst
+
+# --- GRAPH 
+set key
+set xlabel 'x'
+set ylabel 'y'
+set size ratio -1
+plot "/tmp/approx2.txt" w lp t "path", "/tmp/approx_cur2.txt" w l t "curvature", "/tmp/cornu2.txt" pt 7 t "segments"
+
+# --- GRAPH 
+set xlabel 'Arc length'
+set ylabel 'Intregral of absolute curvature'
+set size ratio 0.4
+plot '/tmp/inte1.txt' w fs t "integral1", '/tmp/inte2.txt'  w fs t "integral2"
+
+# --- GRAPH 
+set xlabel 'Intregral of absolute curvature'
+set ylabel 'Curvature'
+set size ratio 0.4
+plot "/tmp/cur1.txt" w lp t "/tmp/curvature1", "/tmp/cur2.txt" w lp t "curvature2", "/tmp/cur_res.txt" w lp t "best_match"
+
+# --- GRAPH 
+unset key
+set xlabel 'x'
+set ylabel 'y'
+set size ratio -1
+plot "/tmp/approx1.txt" w lp, "/tmp/approx2.txt" w lp,  "/tmp/trans.txt" w l lw 5, "/tmp/init.txt" w l lw 5, "/tmp/points.txt" w l lc 9, "/tmp/points.txt" pt 7 lc 9
+
+unset multiplot
